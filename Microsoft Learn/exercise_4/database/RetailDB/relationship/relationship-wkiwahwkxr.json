@@ -1,0 +1,26 @@
+{
+	"name": "relationship-wkiwahwkxr",
+	"properties": {
+		"Name": "relationship-wkiwahwkxr",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "RetailDB"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Product",
+		"ToTableName": "SalesOrder",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ProductId",
+				"ToColumnName": "ProductId"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "48a6efe3-b756-46f0-959f-11ef64813338"
+	},
+	"type": "RELATIONSHIP"
+}

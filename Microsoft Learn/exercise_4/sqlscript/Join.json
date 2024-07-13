@@ -1,0 +1,17 @@
+{
+	"name": "Join",
+	"properties": {
+		"content": {
+			"query": " SELECT o.SalesOrderID, c.EmailAddress, p.ProductName, o.Quantity\n FROM SalesOrder AS o\n JOIN Customer AS c ON o.CustomerId = c.CustomerId\n JOIN Product AS p ON o.ProductId = p.ProductId",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "RetailDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

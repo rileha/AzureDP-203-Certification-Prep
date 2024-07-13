@@ -1,0 +1,26 @@
+{
+	"name": "relationship-vmibcdyspr",
+	"properties": {
+		"Name": "relationship-vmibcdyspr",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "RetailDB"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Customer",
+		"ToTableName": "SalesOrder",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "CustomerId",
+				"ToColumnName": "CustomerId"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "bcc8c4aa-febf-44be-8b3b-6256f45c3b21"
+	},
+	"type": "RELATIONSHIP"
+}
