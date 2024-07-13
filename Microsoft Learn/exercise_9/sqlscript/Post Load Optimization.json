@@ -1,0 +1,17 @@
+{
+	"name": "Post Load Optimization",
+	"properties": {
+		"content": {
+			"query": " ALTER INDEX ALL ON dbo.DimProduct REBUILD;\n\n  CREATE STATISTICS customergeo_stats\n ON dbo.DimCustomer (GeographyKey);",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sql4n8kial",
+				"poolName": "sql4n8kial"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

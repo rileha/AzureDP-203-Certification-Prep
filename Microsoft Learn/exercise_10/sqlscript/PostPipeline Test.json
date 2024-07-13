@@ -1,0 +1,17 @@
+{
+	"name": "PostPipeline Test",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [ProductKey]\n,[ProductAltKey]\n,[ProductName]\n,[Color]\n,[Size]\n,[ListPrice]\n,[Discontinued]\n FROM [dbo].[DimProduct]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqllmyx4wn",
+				"poolName": "sqllmyx4wn"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
