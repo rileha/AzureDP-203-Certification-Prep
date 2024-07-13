@@ -1,0 +1,17 @@
+{
+	"name": "15-SurrogateKeysDIMS",
+	"properties": {
+		"content": {
+			"query": "DROP TABLE dimProduct;\n\nCREATE TABLE dimProduct\n(\n-- ProductSurrogateKey Assigns Unique Integer when Data added to Row\n    ProductSK INT IDENTITY(1,1) NOT NULL,\n    ProductID int NOT NULL,\n    ProductNumber varchar(100) NOT NULL,\n    Color varchar(20) NOT NULL,\n    ProductCategoryID int NOT NULL,\n    ProductCategoryName varchar(200) NOT NULL\n)\nWITH\n(\n    DISTRIBUTION = REPLICATE\n);\n\nSELECT * \nFROM dimProduct\nORDER BY ProductSK",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

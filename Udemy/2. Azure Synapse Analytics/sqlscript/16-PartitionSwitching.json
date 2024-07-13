@@ -1,0 +1,17 @@
+{
+	"name": "16-PartitionSwitching",
+	"properties": {
+		"content": {
+			"query": "SELECT * \nFROM PoolActivityLog;\n\nDROP TABLE PoolActivityLog;\n\n-- Time Column Based on DateTime\nCREATE TABLE PoolActivityLog\n(\n   [Correlationid] varchar(200),\n   [Operationname] varchar(300),\n   [Status] varchar(100),\n   [Eventcategory] varchar(100),\n   [Level] varchar(100),\n   [Time] DATETIME,\n   [Subscription] varchar(200),\n   [Eventinitiatedby] varchar(1000),\n   [Resourcetype] varchar(300),\n   [Resourcegroup] varchar(1000),\n   [Resource] varchar(2000)\n)\nWITH\n(\n-- Typically Partition by Date\n    DISTRIBUTION= HASH(Operationname),\n    PARTITION ( \n        Time RANGE RIGHT FOR VALUES\n        ('2024-04-01','2024-05-01')\n    ));\n\nSELECT \n    FORMAT(Time,'yyyy-MM-dd') AS 'Operation DateTime',\n    COUNT(Operationname) AS 'Number of Operations'\nFROM PoolActivityLog\nGROUP BY FORMAT(Time,'yyyy-MM-dd')\nORDER BY 'Operation DateTime';\n\n-- Partition Switching Enables Movement of an Entire Set of Data from One Table to Another\n-- Much less Performance Inhibiting and Costly Operation than Deleting the Data\n-- Partition Swtiching Example\nCREATE TABLE PoolActivityLog_New\n(\n   [Correlationid] varchar(200),\n   [Operationname] varchar(300),\n   [Status] varchar(100),\n   [Eventcategory] varchar(100),\n   [Level] varchar(100),\n   [Time] DATETIME,\n   [Subscription] varchar(200),\n   [Eventinitiatedby] varchar(1000),\n   [Resourcetype] varchar(300),\n   [Resourcegroup] varchar(1000),\n   [Resource] varchar(2000)\n)\nWITH\n(\n-- Now only One Date Provided\n    DISTRIBUTION= HASH(Operationname),\n    PARTITION ( \n        Time RANGE RIGHT FOR VALUES\n        ('2024-05-01')\n    ));\n\n-- Switch Command\n-- Old Table will have 3 Partitions: After 01-04, After, 01-05 and Before 01-04\n-- New Table will have 2 Partitions: Before 01-05 and After 01-05 (RIGHT) \nALTER TABLE PoolActivityLog\nSWITCH PARTITION 2\nTO PoolActivityLog_New\nPARTITION 1;\n\n-- Now have only Operations in the Month of May (05)\nSELECT \n    FORMAT(Time,'yyyy-MM-dd') AS 'Operation DateTime',\n    COUNT(Operationname) AS 'Number of Operations'\nFROM PoolActivityLog\nGROUP BY FORMAT(Time,'yyyy-MM-dd')\nORDER BY 'Operation DateTime';\n\n-- New Table only has Operations from April (04)\nSELECT \n    FORMAT(Time,'yyyy-MM-dd') AS 'Operation DateTime',\n    COUNT(Operationname) AS 'Number of Operations'\nFROM PoolActivityLog_New\nGROUP BY FORMAT(Time,'yyyy-MM-dd')\nORDER BY 'Operation DateTime';",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

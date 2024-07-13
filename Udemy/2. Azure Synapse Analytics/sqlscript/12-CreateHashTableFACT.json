@@ -1,0 +1,17 @@
+{
+	"name": "12-CreateHashTableFACT",
+	"properties": {
+		"content": {
+			"query": "DROP TABLE factSales;\n\n-- For SELECT Query at the bottom of this page:\n-- On SQL Requests, Round-Robin (Default) Takes 3 Seconds\n-- With Hash Ditribution Takes 1 Second as no ShuffleOperation\n\nCREATE TABLE factSales\n(\n    SalesOrderID int NOT NULL,\n    OrderDate datetime NOT NULL,\n    CustomerID int NOT NULL,\n    SubTotal money NOT NULL,\n    TaxAmt money NOT NULL,\n    Freight money NOT NULL,\n    TotalDue money NOT NULL,\n    OrderQty int,\n    ProductID int NOT NULL,\n    UnitPrice money NOT NULL,\n    UnitPriceDiscount money NOT NULL,\n    LineTotal decimal NOT NULL\n)\nWITH\n(\n    DISTRIBUTION=HASH(ProductID)\n);\n\n-- No Data Until Running Pipeline 03\nSELECT ProductID,COUNT(SalesOrderID) AS 'Count of Sales Orders' FROM factSales\nGROUP BY ProductID\nORDER BY ProductID;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

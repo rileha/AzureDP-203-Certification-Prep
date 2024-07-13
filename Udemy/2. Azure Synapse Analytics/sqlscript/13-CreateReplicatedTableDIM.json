@@ -1,0 +1,17 @@
+{
+	"name": "13-CreateReplicatedTableDIM",
+	"properties": {
+		"content": {
+			"query": "DROP TABLE dimProduct;\nDROP TABLE dimCustomer;\n\n-- Replicated Tables are more Suitable for dimTables\n-- Followed by dimCustomer & dimProduct Pipeline runs\nCREATE TABLE dimProduct\n(\n    ProductID int NOT NULL,\n    ProductNumber varchar(100) NOT NULL,\n    Color varchar(20) NOT NULL,\n    ProductCategoryID int NOT NULL,\n    ProductCategoryName varchar(200) NOT NULL\n)\nWITH\n(\n    DISTRIBUTION = REPLICATE\n);\n\nCREATE TABLE dimCustomer\n(\n    CustomerID int NOT NULL,\n    CompanyName varchar(500) NOT NULL\n)\nWITH\n(\n    DISTRIBUTION = REPLICATE\n);",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

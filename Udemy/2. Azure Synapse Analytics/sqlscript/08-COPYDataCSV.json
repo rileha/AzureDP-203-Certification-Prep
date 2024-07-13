@@ -1,0 +1,17 @@
+{
+	"name": "08-COPYDataCSV",
+	"properties": {
+		"content": {
+			"query": "DROP TABLE PoolActivityLog;\n\nCREATE TABLE PoolActivityLog\n(\n   [Correlationid] varchar(200),\n   [Operationname] varchar(300),\n   [Status] varchar(100),\n   [Eventcategory] varchar(100),\n   [Level] varchar(100),\n   [Time] varchar(100),\n   [Subscription] varchar(200),\n   [Eventinitiatedby] varchar(1000),\n   [Resourcetype] varchar(300),\n   [Resourcegroup] varchar(1000),\n   [Resource] varchar(2000)\n)\nWITH(\n    DISTRIBUTION = ROUND_ROBIN\n);\n\n-- Note no data\nSELECT *\nFROM PoolActivityLog;\n\nCOPY INTO PoolActivityLog\nFROM 'https://adlsdata16006652.blob.core.windows.net/data/ActivityLog01.csv'\nWITH(\n    FILE_TYPE = 'CSV',\n    FIRSTROW = 2,\n    CREDENTIAL =\n    (\n        IDENTITY = 'Shared Access Signature',\n        SECRET='sv=2022-11-02&ss=b&srt=sco&sp=rl&se=2024-07-11T22:59:05Z&st=2024-07-10T14:59:05Z&spr=https&sig=2Z2RE1HiNeoe1tx5ereCgKP%2FymmBHm9Ix2tFYiLltjU%3D'\n    )\n);\n\n-- Now is Populated with Data\nSELECT * \nFROM PoolActivityLog;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

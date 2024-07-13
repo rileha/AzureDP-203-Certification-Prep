@@ -1,0 +1,17 @@
+{
+	"name": "10-LoadDataPipeline",
+	"properties": {
+		"content": {
+			"query": "-- No need to Drop the Table - Simply Delete the Data\nDELETE FROM PoolActivityLog;\n\n-- After Pipeline Run See the Data Populated Once Again\nSELECT * \nFROM PoolActivityLog;\n\n-- To Confirm Accurate Pipeline Run\nSELECT COUNT(*)\nFROM PoolActivityLog;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

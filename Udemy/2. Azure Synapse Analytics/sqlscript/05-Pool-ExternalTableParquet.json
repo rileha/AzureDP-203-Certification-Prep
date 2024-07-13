@@ -1,0 +1,17 @@
+{
+	"name": "05-Pool-ExternalTableParquet",
+	"properties": {
+		"content": {
+			"query": "DROP EXTERNAL TABLE ActivityLog;\nDROP EXTERNAL DATA SOURCE srcActivityLog;\n\nCREATE EXTERNAL DATA SOURCE srcActivityLog\nWITH \n(\n    LOCATION='https://adlsdata16006652.blob.core.windows.net/data',\n    CREDENTIAL=sasToken\n);\n\nCREATE EXTERNAL FILE FORMAT parquetFileFormat WITH\n(\n    FORMAT_TYPE = PARQUET,\n    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'\n);\n\nCREATE EXTERNAL TABLE ActivityLog\n(\n   [Correlationid] varchar(200),\n   [Operationname] varchar(300),\n   [Status] varchar(100),\n   [Eventcategory] varchar(100),\n   [Level] varchar(100),\n   [Time] varchar(100),\n   [Subscription] varchar(200),\n   [Eventinitiatedby] varchar(1000),\n   [Resourcetype] varchar(300),\n   [Resourcegroup] varchar(1000),\n   [Resource] varchar(2000))\nWITH (\n    LOCATION = '/ActivityLog01.parquet',\n    DATA_SOURCE = srcActivityLog,\n    FILE_FORMAT = parquetFileFormat\n);\n\nSELECT * \nFROM ActivityLog",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "14-SHOWSPACEUSED",
+	"properties": {
+		"content": {
+			"query": "-- Shows Distributions, Nodes etc\nDBCC PDW_SHOWSPACEUSED('factSales')",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

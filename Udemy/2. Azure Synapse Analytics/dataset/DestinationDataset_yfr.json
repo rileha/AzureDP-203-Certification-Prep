@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_yfr",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SalesLT",
+			"table": "SalesOrderDetail"
+		},
+		"sqlPool": {
+			"referenceName": "datapool",
+			"type": "SqlPoolReference"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

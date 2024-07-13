@@ -1,0 +1,17 @@
+{
+	"name": "07-LoadData",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE PoolActivityLog\nWITH(\n    DISTRIBUTION = ROUND_ROBIN\n)\nAS \nSELECT * FROM ActivityLog;\n\nSELECT * FROM PoolActivityLog;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

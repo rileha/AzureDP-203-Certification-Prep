@@ -1,0 +1,17 @@
+{
+	"name": "02-ExternalTableParquet",
+	"properties": {
+		"content": {
+			"query": "-- Must Delete External Table First\nDROP EXTERNAL TABLE ActivityLog;\nDROP EXTERNAL DATA SOURCE srcActivityLog;\n\n-- Create Encryption for Access\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'P@ssword@123'\n\n-- Shared Access Signature Active for 24hrs\nCREATE DATABASE SCOPED CREDENTIAL sasToken\nWITH  IDENTITY = 'SHARED ACCESS SIGNATURE',\nSECRET = 'sv=2022-11-02&ss=b&srt=sco&sp=rl&se=2024-07-11T20:38:48Z&st=2024-07-10T12:38:48Z&spr=https&sig=1%2FzDQcOLvmruEHpRa6qS5YGEJdX5VK42dBL%2FZRyibVs%3D'\n\nCREATE EXTERNAL DATA SOURCE srcActivityLog\nWITH \n(\n    LOCATION='https://adlsdata16006652.blob.core.windows.net/data',\n    CREDENTIAL = sasToken\n);\n\nCREATE EXTERNAL FILE FORMAT parquetFileFormat\nWITH(\n    FORMAT_TYPE = PARQUET,\n    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'\n);\n\nDROP EXTERNAL TABLE ActivityLog;\n\nCREATE EXTERNAL TABLE ActivityLog\n(\n   [Correlationid] varchar(200),\n   [Operationname] varchar(300),\n   [Status] varchar(100),\n   [Eventcategory] varchar(100),\n   [Level] varchar(100),\n   [Time] varchar(100),\n   [Subscription] varchar(200),\n   [Eventinitiatedby] varchar(1000),\n   [Resourcetype] varchar(300),\n   [Resourcegroup] varchar(1000),\n   [Resource] varchar(2000))\nWITH (\n    LOCATION = '/*.parquet', -- Changing Name to * Selects All Parquet Files\n    DATA_SOURCE = srcActivityLog,\n    FILE_FORMAT = parquetFileFormat\n);\n\nSELECT COUNT(*) FROM ActivityLog;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "appdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

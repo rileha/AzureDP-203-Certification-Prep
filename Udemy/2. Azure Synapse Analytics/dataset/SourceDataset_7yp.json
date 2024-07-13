@@ -1,0 +1,66 @@
+{
+	"name": "SourceDataset_7yp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsdata16006652 Link",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ActivityLog01.parquet",
+				"fileSystem": "data"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "Correlationid",
+				"type": "UTF8"
+			},
+			{
+				"name": "Operationname",
+				"type": "UTF8"
+			},
+			{
+				"name": "Status",
+				"type": "UTF8"
+			},
+			{
+				"name": "Eventcategory",
+				"type": "UTF8"
+			},
+			{
+				"name": "Level",
+				"type": "UTF8"
+			},
+			{
+				"name": "Time",
+				"type": "UTF8"
+			},
+			{
+				"name": "Subscription",
+				"type": "UTF8"
+			},
+			{
+				"name": "Eventinitiatedby",
+				"type": "UTF8"
+			},
+			{
+				"name": "Resourcetype",
+				"type": "UTF8"
+			},
+			{
+				"name": "Resourcegroup",
+				"type": "UTF8"
+			},
+			{
+				"name": "Resource",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

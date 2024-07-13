@@ -1,0 +1,40 @@
+{
+	"name": "DestinationDataset_f1k",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [
+			{
+				"name": "ProductID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ProductNumber",
+				"type": "varchar"
+			},
+			{
+				"name": "Color",
+				"type": "varchar"
+			},
+			{
+				"name": "ProductCategoryID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ProductCategoryName",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dimProduct"
+		},
+		"sqlPool": {
+			"referenceName": "datapool",
+			"type": "SqlPoolReference"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

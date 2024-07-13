@@ -1,0 +1,17 @@
+{
+	"name": "17-CASEStatement",
+	"properties": {
+		"content": {
+			"query": "-- CASE: Evaluates a list of conditions and returns one of multiple possible result expressions.\n\n-- Can Prioritize Level of Importance\nSELECT \n    Eventcategory,\n    EventTier = CASE [Eventcategory]\nWHEN 'Administrative' THEN 'Tier 1'\nWHEN 'Resource Health' THEN 'Tier 2'\nWHEN 'Service Health' THEN 'Tier 3'\nWHEN 'Policy' THEN 'Tier 4'\nWHEN 'Recommendation' THEN 'Tier 5'\nEND,\nCOUNT([Operationname]) AS 'Count of operations'\nFROM [PoolActivityLog]\nGROUP BY [Eventcategory]\n\nSELECT\n    Eventcategory,\n    Operationname\nFROM PoolActivityLog;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

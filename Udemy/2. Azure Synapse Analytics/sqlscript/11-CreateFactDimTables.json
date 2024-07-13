@@ -1,0 +1,17 @@
+{
+	"name": "11-CreateFactDimTables",
+	"properties": {
+		"content": {
+			"query": "-- No Distribution Specified == Round-Robin\nCREATE TABLE factSales\n(\n    SalesOrderID int NOT NULL,\n    OrderDate datetime NOT NULL,\n    CustomerID int NOT NULL,\n    SubTotal money NOT NULL,\n    TaxAmt money NOT NULL,\n    Freight money NOT NULL,\n    TotalDue money NOT NULL,\n    OrderQty int,\n    ProductID int NOT NULL,\n    UnitPrice money NOT NULL,\n    UnitPriceDiscount money NOT NULL,\n    LineTotal decimal NOT NULL\n)\n\nCREATE TABLE dimProduct\n(\n    ProductID int NOT NULL,\n    ProductNumber varchar(100) NOT NULL,\n    Color varchar(20) NOT NULL,\n    ProductCategoryID int NOT NULL,\n    ProductCategoryName varchar(200) NOT NULL\n\n)\n\nCREATE TABLE dimCustomer\n(\n    CustomerID int NOT NULL,\n    CompanyName varchar(500) NOT NULL\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

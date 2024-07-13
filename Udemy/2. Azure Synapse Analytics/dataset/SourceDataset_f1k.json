@@ -1,0 +1,36 @@
+{
+	"name": "SourceDataset_f1k",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "appdb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ProductID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ProductNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Color",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductCategoryID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ProductCategoryName",
+				"type": "nvarchar"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
