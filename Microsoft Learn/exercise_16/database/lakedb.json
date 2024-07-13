@@ -1,0 +1,25 @@
+{
+	"name": "lakedb",
+	"properties": {
+		"Name": "lakedb",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://files@datalakemv05ybz.dfs.core.windows.net/data",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "synapsemv05ybz-WorkspaceDefaultStorage"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "07a78c84-f9ab-45f5-8082-9b444b6ad581"
+	},
+	"type": "DATABASE"
+}

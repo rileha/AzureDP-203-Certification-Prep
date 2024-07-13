@@ -1,0 +1,18 @@
+{
+    "name": "stream-orders",
+    "startFile": "Transformation.asaql",
+    "configurations": [
+        {
+            "filePath": "JobConfig.json",
+            "subType": "JobConfig"
+        },
+        {
+            "filePath": "Inputs/orders.json",
+            "subType": "Input"
+        },
+        {
+            "filePath": "Outputs/powerbi-dataset.json",
+            "subType": "Output"
+        }
+    ]
+}

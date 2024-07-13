@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": " SELECT *\n FROM OPENROWSET(​PROVIDER = 'CosmosDB',\n                 CONNECTION = 'Account=cosmostaqlwoz1;Database=AdventureWorks',\n                 OBJECT = 'Sales',\n                 SERVER_CREDENTIAL = 'cosmostaqlwoz1'\n )\n WITH (\n     OrderID VARCHAR(10) '$.id',\n     OrderDate VARCHAR(10) '$.orderdate',\n     CustomerID INTEGER '$.customerid',\n     CustomerName VARCHAR(40) '$.customerdetails.customername',\n     CustomerEmail VARCHAR(30) '$.customerdetails.customeremail',\n     Product VARCHAR(30) '$.product',\n     Quantity INTEGER '$.quantity',\n     Price FLOAT '$.price'\n )\n AS sales\n ORDER BY OrderID;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

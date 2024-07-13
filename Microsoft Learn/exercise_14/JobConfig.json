@@ -1,0 +1,32 @@
+{
+    "ScriptType": "JobConfig",
+    "DataLocale": "en-US",
+    "OutputErrorPolicy": "Retry",
+    "EventsLateArrivalMaxDelayInSeconds": 5,
+    "EventsOutOfOrderMaxDelayInSeconds": 0,
+    "EventsOutOfOrderPolicy": "Adjust",
+    "Sku": {
+        "Name": "StandardV2",
+        "StreamingUnits": "1"
+    },
+    "CompatibilityLevel": "1.2",
+    "UseSystemAssignedIdentity": true,
+    "GlobalStorage": {
+        "AccountName": "datalakenhx0mfb",
+        "AccountKey": null,
+        "AuthenticationMode": "ConnectionString"
+    },
+    "ContentStoragePolicy": "JobStorageAccount",
+    "CustomCodeStorage": {
+        "AccountName": null,
+        "AccountKey": null,
+        "ContainerName": null,
+        "Path": null
+    },
+    "VirtualNetworkConfiguration": {
+        "VirtualNetworkName": null,
+        "SubnetResourceId": null
+    },
+    "DataSourceCredentialDomain": "89559aeb-2b5c-424d-b67b-0e89f232019b.StreamAnalystics",
+    "Tags": {}
+}

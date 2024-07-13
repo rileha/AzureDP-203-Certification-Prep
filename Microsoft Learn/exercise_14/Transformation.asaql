@@ -1,0 +1,11 @@
+ SELECT
+     DateAdd(second,-5,System.TimeStamp) AS StartTime,
+     System.TimeStamp AS EndTime,
+     ProductID,
+     SUM(Quantity) AS Orders
+ INTO
+     [datalake]
+ FROM
+     [orders] TIMESTAMP BY EventProcessedUtcTime
+ GROUP BY ProductID, TumblingWindow(second, 5)
+ HAVING COUNT(*) > 1

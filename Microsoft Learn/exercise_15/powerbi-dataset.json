@@ -1,0 +1,12 @@
+{
+    "Name": "powerbi-dataset",
+    "DataSourceType": "Power BI",
+    "PowerBIProperties": {
+        "GroupName": null,
+        "GroupId": "d7d9ef16-fee7-40cb-9a70-c929627b4dfb",
+        "Dataset": "realtime-data",
+        "Table": "orders",
+        "AuthenticationMode": "UserToken"
+    },
+    "ScriptType": "Output"
+}

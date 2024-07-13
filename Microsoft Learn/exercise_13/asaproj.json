@@ -1,0 +1,18 @@
+{
+    "name": "process-orders",
+    "startFile": "Transformation.asaql",
+    "configurations": [
+        {
+            "filePath": "JobConfig.json",
+            "subType": "JobConfig"
+        },
+        {
+            "filePath": "Inputs/orders.json",
+            "subType": "Input"
+        },
+        {
+            "filePath": "Outputs/blobstore.json",
+            "subType": "Output"
+        }
+    ]
+}

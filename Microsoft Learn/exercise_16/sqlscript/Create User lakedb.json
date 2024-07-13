@@ -1,0 +1,17 @@
+{
+	"name": "Create User lakedb",
+	"properties": {
+		"content": {
+			"query": " CREATE LOGIN mv05ybz FROM EXTERNAL PROVIDER;\n GO\n\n CREATE USER mv05ybz FOR LOGIN mv05ybz;\n GO\n\n ALTER ROLE db_datareader ADD MEMBER mv05ybz;\n GO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "lakedb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

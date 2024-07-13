@@ -1,0 +1,17 @@
+{
+	"name": "Create User SQL DB",
+	"properties": {
+		"content": {
+			"query": " CREATE USER mv05ybz FROM EXTERNAL PROVIDER;\n GO\n\n EXEC sp_addrolemember 'db_datareader', mv05ybz;\n GO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqlmv05ybz",
+				"poolName": "sqlmv05ybz"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

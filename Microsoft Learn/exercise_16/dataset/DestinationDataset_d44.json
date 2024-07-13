@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_d44",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "products"
+		},
+		"sqlPool": {
+			"referenceName": "sqlmv05ybz",
+			"type": "SqlPoolReference"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

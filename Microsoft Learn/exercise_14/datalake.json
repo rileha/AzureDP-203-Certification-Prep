@@ -1,0 +1,27 @@
+{
+    "Name": "datalake",
+    "DataSourceType": "Blob Storage",
+    "BlobStorageProperties": {
+        "StorageAccounts": [
+            {
+                "AccountName": "datalakenhx0mfb",
+                "AccountKey": null
+            }
+        ],
+        "Container": "files",
+        "PathPattern": "{date}",
+        "DateFormat": "yyyy/MM/dd",
+        "TimeFormat": "HH",
+        "AuthenticationMode": "ConnectionString",
+        "BlobWriteMode": "Append"
+    },
+    "DataSourceCredentialDomain": "498ff502-6986-4988-ba11-82da03e3da7a.StreamAnalystics",
+    "Serialization": {
+        "Type": "Csv",
+        "Encoding": "UTF8",
+        "FieldDelimiter": ","
+    },
+    "MinimumRows": 20,
+    "MaximumTime": "00:01:00",
+    "ScriptType": "Output"
+}
