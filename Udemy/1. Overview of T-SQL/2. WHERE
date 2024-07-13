@@ -1,0 +1,14 @@
+-- WHERE Clause
+SELECT *
+From SalesLT.SalesOrderDetail
+WHERE ProductID = 836;
+
+-- WHERE Clause with Conditions
+SELECT *
+From SalesLT.SalesOrderDetail
+WHERE OrderQty > 10 AND UnitPrice > 100;
+
+-- WHERE Clause Filtering by String
+SELECT *
+From SalesLt.Customer
+WHERE LastName = 'Harris';

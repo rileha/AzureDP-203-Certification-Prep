@@ -1,0 +1,12 @@
+-- CREATE TABLE
+CREATE TABLE student
+(
+    StudentID varchar(100) NOT NULL,
+    StudentName varchar(1000),
+    PRIMARY KEY (StudentID)
+);
+
+INSERT INTO student(StudentID, StudentName) VALUES ('501', 'StudentA')
+
+SELECT * 
+FROM student

@@ -1,0 +1,5 @@
+-- Order By
+SELECT *
+From SalesLT.SalesOrderDetail
+WHERE OrderQty > 10
+ORDER BY UnitPrice DESC;

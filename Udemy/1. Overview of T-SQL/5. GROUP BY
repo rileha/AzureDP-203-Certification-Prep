@@ -1,0 +1,6 @@
+-- GROUP BY Clause
+SELECT  
+    ProductID,
+    SUM(OrderQty) AS 'Total Order Quantity'
+FROM SalesLT.SalesOrderDetail
+GROUP BY ProductID;

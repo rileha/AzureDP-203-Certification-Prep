@@ -1,0 +1,13 @@
+-- LEAD Function
+SELECT 
+    ProductID,
+    OrderQty,
+    LEAD(OrderQty) OVER (ORDER BY ProductID) AS 'Next Order Quantity'
+FROM SalesLT.SalesOrderDetail;
+
+-- LAG Function
+SELECT 
+    ProductID,
+    OrderQty,
+    LAG(OrderQty) OVER (ORDER BY ProductID) AS 'Previous Order Quantity'
+FROM SalesLT.SalesOrderDetail;

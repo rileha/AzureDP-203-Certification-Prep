@@ -1,0 +1,13 @@
+-- Count Function
+SELECT COUNT(*) AS 'Count of Rows'
+From SalesLT.SalesOrderDetail
+WHERE OrderQty > 10;
+
+-- Product Count
+SELECT COUNT(ProductID) AS 'Count of Products'
+From SalesLT.SalesOrderDetail
+WHERE OrderQty > 10;
+
+-- Max Function
+SELECT MAX(OrderQty) AS 'Max Value of Order Quantity'
+FROM SalesLT.SalesOrderDetail

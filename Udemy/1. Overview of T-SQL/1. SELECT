@@ -1,0 +1,10 @@
+-- Select Clause
+SELECT *
+FROM SalesLT.SalesOrderDetail;
+
+-- Select Clause with Alias
+SELECT 
+    SalesOrderID, 
+    ProductID, 
+    OrderQty AS 'Order Quantity'
+FROM SalesLT.SalesOrderDetail;

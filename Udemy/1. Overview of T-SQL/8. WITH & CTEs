@@ -1,0 +1,10 @@
+-- WITH Clause and Common Table Expressions
+WITH CTE_Products AS
+(
+    SELECT 
+        ProductID,
+        OrderQty
+    FROM SalesLT.SalesOrderDetail
+)
+SELECT *
+FROM CTE_Products;

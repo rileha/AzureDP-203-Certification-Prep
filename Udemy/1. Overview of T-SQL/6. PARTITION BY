@@ -1,0 +1,6 @@
+-- PARTITION BY
+SELECT 
+    ProductID,
+    OrderQty,
+    SUM(OrderQty) OVER (PARTITION BY ProductID) AS 'Total Order Quantity'
+FROM SalesLT.SalesOrderDetail;
