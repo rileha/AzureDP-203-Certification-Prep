@@ -1,0 +1,68 @@
+{
+	"name": "03-Pipeline_DataWarehouse",
+	"properties": {
+		"activities": [
+			{
+				"name": "01-DataFlow-DataWarehouse",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "StoredProcedureClearTables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "01_DataFlow_Warehouse",
+						"type": "DataFlowReference"
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "datalakez95pevs1",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "staging"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "StoredProcedureClearTables",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[ClearTables]"
+				},
+				"linkedServiceName": {
+					"referenceName": "saz95pevs",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-07-12T12:58:55Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

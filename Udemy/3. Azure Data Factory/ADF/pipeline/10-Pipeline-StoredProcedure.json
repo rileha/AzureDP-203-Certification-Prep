@@ -1,0 +1,36 @@
+{
+	"name": "10-Pipeline-StoredProcedure",
+	"properties": {
+		"activities": [
+			{
+				"name": "01-Activity-GetCompanyName",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[GetCompanyName]",
+					"storedProcedureParameters": {
+						"pCustomerID": {
+							"value": "277",
+							"type": "Int32"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "saz95pevs",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-07-12T19:02:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

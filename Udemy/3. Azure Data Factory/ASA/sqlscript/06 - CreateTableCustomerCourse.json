@@ -1,0 +1,17 @@
+{
+	"name": "06 - CreateTableCustomerCourse",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE Customercourse\n(\n    CustomerID int,\n    CustomerName varchar(200),\n    Registered BIT,\n    Courses varchar(200)\n)\n\nSELECT *\nFROM Customercourse;\n\n-- New JSON File has Additional JSON Objects: 'Mobile' & 'City'\nDROP TABLE Customercourse;\n\nCREATE TABLE Customercourse\n(\n    CustomerID int,\n    CustomerName varchar(200),\n    Registered BIT,\n    Courses varchar(200),\n    Mobile varchar(200),\n    City varchar(200)\n);\n\nSELECT *\nFROM Customercourse;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

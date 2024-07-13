@@ -1,0 +1,17 @@
+{
+	"name": "08-ConditionalSplit",
+	"properties": {
+		"content": {
+			"query": "SELECT *\nFROM PoolActivityLog;\n\nDELETE FROM PoolActivityLog;\n\nSELECT \n    Resourcegroup, \n    COUNT(Operationname) AS 'Operation Count'\nFROM PoolActivityLog\nGROUP BY Resourcegroup;\n\nDROP TABLE PoolActivityLog;\n\nCREATE TABLE PoolActivityLog\n(\n    CustomerID int NOT NULL,\n    CompanyName varchar(200),\n    SalesPerson varchar(200)\n);",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

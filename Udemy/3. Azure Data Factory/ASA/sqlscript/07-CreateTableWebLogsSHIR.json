@@ -1,0 +1,17 @@
+{
+	"name": "07-CreateTableWebLogsSHIR",
+	"properties": {
+		"content": {
+			"query": "DROP TABLE WebLogs;\n\nCREATE TABLE WebLogs\n(\n    LogDate date,\n    IPAddress varchar(20),\n    RequestMethod varchar(10),\n    RequestResource varchar(1000)\n);\n\nSELECT * \nFROM WebLogs;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "datalakez95pevs1_ActivityLog_JSON",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalakez95pevs1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "json"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

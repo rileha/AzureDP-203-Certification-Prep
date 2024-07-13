@@ -1,0 +1,17 @@
+{
+	"name": "01-CreateHashTable",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE PoolActivityLog\n(\n    [Correlationid] varchar(200),\n    [Operationname] varchar(300),\n    [Status] varchar(100),\n    [Eventcategory] varchar(100),\n    [Level] varchar(100),\n    [Time] varchar(100),\n    [Subscription] varchar(200),\n    [Eventinitiatedby] varchar(1000),\n    [Resourcetype] varchar(300),\n    [Resourcegroup] varchar(1000),\n    [Resource] varchar(2000)\n)\nWITH\n(\n    DISTRIBUTION=HASH(Operationname)\n)\n\nSELECT *\nFROM PoolActivityLog;\n\nDELETE FROM PoolActivityLog;\n\nDROP TABLE PoolActivityLog;\n\n-- Now [Time] is DATETIME \nCREATE TABLE PoolActivityLog\n(\n    [Correlationid] varchar(200),\n    [Operationname] varchar(300),\n    [Status] varchar(100),\n    [Eventcategory] varchar(100),\n    [Level] varchar(100),\n    [Time] DATETIME,\n    [Subscription] varchar(200),\n    [Eventinitiatedby] varchar(1000),\n    [Resourcetype] varchar(300),\n    [Resourcegroup] varchar(1000),\n    [Resource] varchar(2000)\n)\nWITH\n(\n    DISTRIBUTION=HASH(Operationname)\n)\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

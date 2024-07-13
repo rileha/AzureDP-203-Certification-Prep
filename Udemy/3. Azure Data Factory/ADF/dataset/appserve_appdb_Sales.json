@@ -1,0 +1,13 @@
+{
+	"name": "appserve_appdb_Sales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "appdb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

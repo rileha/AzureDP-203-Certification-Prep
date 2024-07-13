@@ -1,0 +1,17 @@
+{
+	"name": "09-StoredProcedure",
+	"properties": {
+		"content": {
+			"query": "SELECT *\nFROM dimCustomer;\n\nCREATE PROCEDURE GetCompanyName\n    @pCustomerID INT\nAS\n    SELECT DISTINCT(CompanyName)\n    FROM dimCustomer\n    WHERE CustomerID = @pCustomerID;\n\nEXEC GetCompanyName @pCustomerID = 277;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

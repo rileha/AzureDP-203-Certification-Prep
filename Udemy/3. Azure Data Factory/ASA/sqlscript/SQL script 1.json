@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "DROP Table dimProduct;\n\nCREATE TABLE dimProduct\n(\n    ProductSK int NOT NULL,\n    ProductID int NOT NULL,\n    ProductNumber varchar(100) NOT NULL,\n    Color VARCHAR(20) NOT NULL,\n    ProductCategoryID int NOT NULL,\n    ProductCategoryName varchar(200) NOT NULL\n)\nWITH\n(\n    DISTRIBUTION = REPLICATE\n);\n\nDROP TABLE dimCustomer\n\nCREATE TABLE dimCustomer\n(\n    CustomerSK int NOT NULL,\n    CustomerID int NOT NULL,\n    CompanyName varchar(500) NOT NULL\n)\nWITH\n(\n    DISTRIBUTION = REPLICATE\n);\n\nSELECT COUNT(*)\nFROM dimCustomer;\n\nSELECT MAX(CustomerSK) \nFROM dimCustomer;\n\nSELECT COUNT(*)\nFROM dimCustomer\nWHERE CustomerID < 20000;\n\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'P@ssword@123'\n\nSELECT * FROM dimCustomer\n\nDELETE FROM PoolActivityLog;\n\nSELECT *\nFROM PoolActivityLog;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

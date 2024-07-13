@@ -1,0 +1,180 @@
+{
+	"name": "02-Pipeline-SQL-Pool",
+	"properties": {
+		"activities": [
+			{
+				"name": "03-Activity-SQL-Pool",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT \nhd.[SalesOrderID],\nhd.[OrderDate],\nhd.[CustomerID],\nhd.[SubTotal],\nhd.[TaxAmt],\nhd.[Freight],\nhd.[TotalDue],\ndt.[OrderQty],\ndt.[ProductID],\ndt.[UnitPrice],\ndt.[UnitPriceDiscount],\ndt.[LineTotal]\nFROM [SalesLT].[SalesOrderHeader] AS hd \nINNER JOIN [SalesLT].[SalesOrderDetail] AS dt\nON hd.[SalesOrderID] = dt.[SalesOrderID]",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"allowCopyCommand": true
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "datalakez95pevs1",
+							"type": "LinkedServiceReference"
+						},
+						"path": "staging"
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "SalesOrderID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "SalesOrderID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "OrderDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "OrderDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CustomerID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "CustomerID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "SubTotal",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "SubTotal",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TaxAmt",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TaxAmt",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Freight",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Freight",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalDue",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TotalDue",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "OrderQty",
+									"type": "Int16"
+								},
+								"sink": {
+									"name": "OrderQty",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ProductID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ProductID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "UnitPrice",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "UnitPrice",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "UnitPriceDiscount",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "UnitPriceDiscount",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "LineTotal",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "LineTotal",
+									"type": "Decimal"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "appserve_appdb_Sales",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "saz95pevs_datapool_factSales",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-07-11T13:39:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

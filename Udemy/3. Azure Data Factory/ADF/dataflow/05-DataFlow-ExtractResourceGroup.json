@@ -1,0 +1,81 @@
+{
+	"name": "05-DataFlow-ExtractResourceGroup",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "datalakez95pevs1_data_Activity_Log_csv",
+						"type": "DatasetReference"
+					},
+					"name": "ActivityLogCSVStream"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "saz95pevs_datapool_PoolActivityLog",
+						"type": "DatasetReference"
+					},
+					"name": "ActivityLogSink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SplitRows"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Correlationid as string,",
+				"          Operationname as string,",
+				"          Status as string,",
+				"          Eventcategory as string,",
+				"          Level as string,",
+				"          Time as string,",
+				"          Subscription as string,",
+				"          Eventinitiatedby as string,",
+				"          Resourcetype as string,",
+				"          Resourcegroup as string,",
+				"          Resource as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> ActivityLogCSVStream",
+				"ActivityLogCSVStream split(Resourcegroup == 'app-grp',",
+				"     disjoint: false) ~> SplitRows@(appgrpstream, otherstream)",
+				"SplitRows@appgrpstream sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          CustomerID as integer,",
+				"          CompanyName as string,",
+				"          SalesPerson as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     staged: true,",
+				"     allowCopyCommand: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Correlationid,",
+				"          Operationname,",
+				"          Status,",
+				"          Eventcategory,",
+				"          Level,",
+				"          Time,",
+				"          Subscription,",
+				"          Eventinitiatedby,",
+				"          Resourcetype,",
+				"          Resourcegroup,",
+				"          Resource",
+				"     )) ~> ActivityLogSink"
+			]
+		}
+	}
+}

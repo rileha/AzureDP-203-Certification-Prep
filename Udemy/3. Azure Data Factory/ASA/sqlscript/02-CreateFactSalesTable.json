@@ -1,0 +1,17 @@
+{
+	"name": "02-CreateFactSalesTable",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE factSales\n(\n    SalesOrderID int NOT NULL,\n    OrderDate datetime NOT NULL,\n    CustomerID int NOT NULL,\n    SubTotal money NOT NULL,\n    TaxAmt money NOT NULL,\n    Freight money NOT NULL,\n    TotalDue money NOT NULL,\n    OrderQty int,\n    ProductID int NOT NULL,\n    UnitPrice money NOT NULL,\n    UnitPriceDiscount money NOT NULL,\n    LineTotal decimal NOT NULL\n)\nWITH\n(\n    DISTRIBUTION=HASH(ProductID)\n)\n\nSELECT *\nFROM factSales\n\nDELETE FROM factSales;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

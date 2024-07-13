@@ -1,0 +1,17 @@
+{
+	"name": "05-AutomatedDeleteTables",
+	"properties": {
+		"content": {
+			"query": "SELECT COUNT(*)\nFROM factSales; -- 542\n\nSELECT COUNT(*)\nFROM dimCustomer; -- 847\n\nSELECT COUNT(*)\nFROM dimProduct; -- 245\n\nCREATE PROCEDURE ClearTables\nAS\n    DELETE FROM factSales;\n    DELETE FROM dimCustomer;\n    DELETE FROM dimProduct;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

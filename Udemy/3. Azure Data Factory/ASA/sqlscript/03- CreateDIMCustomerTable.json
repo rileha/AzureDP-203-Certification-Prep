@@ -1,0 +1,17 @@
+{
+	"name": "03- CreateDIMCustomerTable",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE dimCustomer\n(\n    CustomerID int NOT NULL,\n    CompanyName varchar(500) NOT NULL\n)\nWITH\n(\n    DISTRIBUTION = REPLICATE\n);\n\n\nDELETE FROM factSales;\nDELETE FROM dimCustomer;\n\nSELECT *\nFROM factSales;\n\nSELECT * \nFROM dimCustomer;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

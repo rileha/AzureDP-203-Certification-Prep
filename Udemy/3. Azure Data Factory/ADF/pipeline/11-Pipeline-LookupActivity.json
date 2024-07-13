@@ -1,0 +1,100 @@
+{
+	"name": "11-Pipeline-LookupActivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "LookupData",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlDWSource",
+						"sqlReaderStoredProcedureName": "[dbo].[GetCompanyName]",
+						"storedProcedureParameters": {
+							"pCustomerID": {
+								"type": "Int32",
+								"value": "277"
+							}
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "saz95pevs_datapool_PoolActivityLog",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "SetCompanyName",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "LookupData",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "CompanyName",
+					"value": {
+						"value": "@activity('LookupData').output.firstRow.CompanyName",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "SetDefaultComanyName",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "LookupData",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "CompanyName",
+							"value": {
+								"type": "String",
+								"content": "Default"
+							}
+						}
+					],
+					"setSystemVariable": true
+				}
+			}
+		],
+		"variables": {
+			"CompanyName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-07-12T19:31:54Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

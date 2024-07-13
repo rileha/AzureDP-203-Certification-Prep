@@ -1,0 +1,34 @@
+{
+	"name": "saz95pevs_datapool_weblogs",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "saz95pevs",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "LogDate",
+				"type": "date"
+			},
+			{
+				"name": "IPAddress",
+				"type": "varchar"
+			},
+			{
+				"name": "RequestMethod",
+				"type": "varchar"
+			},
+			{
+				"name": "RequestResource",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "WebLogs"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
