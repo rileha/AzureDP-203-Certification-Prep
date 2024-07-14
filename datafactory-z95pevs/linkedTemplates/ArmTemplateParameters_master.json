@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactory-z95pevs"
+		},
+		"appdb_connectionString": {
+			"value": ""
+		},
+		"appvm_password": {
+			"value": ""
+		},
+		"datalakez95pevs1_accountKey": {
+			"value": ""
+		},
+		"saz95pevs_connectionString": {
+			"value": ""
+		},
+		"appvm_properties_typeProperties_host": {
+			"value": "C:\\inetpub\\logs\\LogFiles\\W3SVC1"
+		},
+		"appvm_properties_typeProperties_userId": {
+			"value": "appadmin"
+		},
+		"datalakez95pevs1_properties_typeProperties_url": {
+			"value": "https://datalakez95pevs1.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
