@@ -193,7 +193,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "datalakez95pevs1_data_Activity_Log_csv",
+						"referenceName": "datalakez95pevs1_csv",
 						"type": "DatasetReference"
 					}
 				],
