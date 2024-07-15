@@ -1,0 +1,17 @@
+{
+	"name": "02-CreateBlobDiagnosticsTable",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE [dbo].[BlobDiagnostics]\n  (\n    [TimeGenerated] datetime,\n    [Category] varchar(300),\n    [OperationName] varchar(300),\n    [StatusCode] int,        \n    [CallerIpAddress] varchar(200),\n    [IdentityType] varchar(5000)\n  );\n\nSELECT * \nFROM BlobDiagnostics;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

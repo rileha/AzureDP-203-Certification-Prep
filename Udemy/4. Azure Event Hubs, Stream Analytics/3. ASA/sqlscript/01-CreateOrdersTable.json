@@ -1,0 +1,17 @@
+{
+	"name": "01-CreateOrdersTable",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE [dbo].[Orders]\n  (\n    [OrderID] varchar(10),\n    [Quantity] int,\n    [UnitPrice] decimal(5,2),\n    [DiscountCategory] varchar(10)\n  );\n\nSELECT *\nFROM [dbo].[Orders];",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

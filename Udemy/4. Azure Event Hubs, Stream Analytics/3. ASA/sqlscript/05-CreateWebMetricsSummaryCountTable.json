@@ -1,0 +1,17 @@
+{
+	"name": "05-CreateWebMetricsSummaryCountTable",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE WebMetricsSummaryCount\n(\n    MetricName varchar(200),\n    MetricCount int,\n    WindowTime datetime\n);\n\nSELECT *\nFROM WebMetricsSummaryCount;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

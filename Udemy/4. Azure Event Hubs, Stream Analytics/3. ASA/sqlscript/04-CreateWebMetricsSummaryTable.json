@@ -1,0 +1,17 @@
+{
+	"name": "04-CreateWebMetricsSummaryTable",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE WebMetricsSummary\n(\n    MetricName varchar(200),\n    MetricAverage decimal,\n    WindowTime datetime\n);\n\nSELECT *\nFROM WebMetricsSummary;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

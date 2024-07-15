@@ -1,0 +1,17 @@
+{
+	"name": "03-CreateWebMetricTable",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE WebMetrics\n(\n    Minimum decimal,\n    Maximum decimal,\n    Average decimal,\n    Metrictime datetime,\n    MetricName varchar(200)\n);\n\nSELECT *\nFROM WebMetrics;\n\nSELECT  \n    MetricName,\n    Metrictime\nFROM WebMetrics\nGROUP BY MetricName, Metrictime\nORDER BY MetricName, Metrictime;\n\nDROP TABLE WebMetrics;\n\nCREATE TABLE WebMetrics\n(\n    Minimum decimal,\n    Maximum decimal,\n    Average decimal,\n    Metrictime datetime,\n    MetricName varchar(200),\n    Tier int\n);\n\nSELECT *\nFROM WebMetrics;\n\nCREATE TABLE WebMetrics\n(\n    Average decimal,\n    Metrictime datetime,\n    MetricName varchar(200)\n);\n\nDELETE FROM WebMetrics;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
