@@ -1,0 +1,17 @@
+{
+	"name": "BlobTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/stagingmetric/blobs/PT1H (2)",
+			"ignoreEmptyBlobs": false,
+			"scope": "/subscriptions/c963e010-17e5-4859-9645-3749beeeb05b/resourceGroups/dp203-z95pevs/providers/Microsoft.Storage/storageAccounts/datalakez95pevs1",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

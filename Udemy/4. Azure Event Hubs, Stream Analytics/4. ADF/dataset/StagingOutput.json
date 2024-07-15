@@ -1,0 +1,19 @@
+{
+	"name": "StagingOutput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalakez95pevs1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "stagingoutput"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

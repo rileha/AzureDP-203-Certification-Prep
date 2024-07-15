@@ -1,0 +1,20 @@
+{
+	"name": "InsightsMetricsData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalakez95pevs1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "resourceId=/SUBSCRIPTIONS/C963E010-17E5-4859-9645-3749BEEEB05B/RESOURCEGROUPS/APP-GRP/PROVIDERS/MICROSOFT.WEB/SITES/WEBAPPZ95PEVS",
+				"fileSystem": "insights-metrics-pt1m"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
