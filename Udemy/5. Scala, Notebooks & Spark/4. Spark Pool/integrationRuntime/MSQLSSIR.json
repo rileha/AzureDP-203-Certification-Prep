@@ -1,0 +1,6 @@
+{
+	"name": "MSQLSSIR",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

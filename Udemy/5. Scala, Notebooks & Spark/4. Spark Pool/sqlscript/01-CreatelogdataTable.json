@@ -1,0 +1,17 @@
+{
+	"name": "01-CreatelogdataTable",
+	"properties": {
+		"content": {
+			"query": "SELECT * FROM logdata_parquet;\n\nCREATE TABLE logdata_parquet\n(\n    Correlationid varchar(300),\n    Operationname varchar(300),\n    Status varchar(200),\n    Eventcategory varchar(300),\n    [Level] varchar(200),\n    [Time] datetime,\n    Subscription varchar(200),\n    Eventinitiatedby varchar (300),\n    Resourcetype varchar (200),\n    Resourcegroup varchar(100),\n    Resource varchar(300)\n);",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "datapool",
+				"poolName": "datapool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
