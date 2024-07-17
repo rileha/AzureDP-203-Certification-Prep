@@ -19,7 +19,7 @@ SELECT * FROM DimCustomer
 %scala
 spark.conf.set(
     "fs.azure.account.key.datalakez95pevs1.dfs.core.windows.net",
-    "rtzbGEf8o/0vWN2myNq8WhgmMdVodR6bjrpKdD4Vco1l4UITjrDJm03/mwRo3wh8unOo1mLoy3ch+AStxuCbOQ==")
+    "KEY")
 
 val path="abfss://csv@datalakez95pevs1.dfs.core.windows.net/DimCustomer/"
 val checkpointPath="abfss://checkpoint@datalakez95pevs1.dfs.core.windows.net/"
