@@ -1,0 +1,5 @@
+CREATE USER [user@email.onmicrosoft.com]
+FROM EXTERNAL PROVIDER 
+WITH DEFAULT_SCHEMA = dbo;
+
+EXEC sp_addrolemember N'db_datareader', N'user@email.onmicrosoft.com'
