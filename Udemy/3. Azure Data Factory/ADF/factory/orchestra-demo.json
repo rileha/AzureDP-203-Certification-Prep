@@ -1,0 +1,9 @@
+{
+	"name": "orchestra-demo",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "28913101-d672-4611-8c5d-9c70a05ef20a",
+		"tenantId": "8c3350c5-de17-460b-9cac-d8bf0f1257dd"
+	}
+}
